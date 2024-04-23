@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="<KEY>" crossorigin="anonymous">
+    <title>Credit Card Churn Prediction</title>
+</head>
+<body>
+    <a href="/index" class="btn btn-primary ml-3 mt-3"> Back Home </a> <!-- Back button -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Credit Card Churn Prediction</h1>
+            <p class="lead">This website uses machine learning to predict whether a customer is likely to churn (cancel) their credit card.</p>
+            <hr class="my-4">
+                <form action="/predict" method="POST" class="mx-auto">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="credit_score">Credit Score:</label>
+                                <input type="number" class="form-control" id="credit_score" name="CreditScore" placeholder="Enter Credit Score (e.g., 608)">
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age:</label>
+                                <input type="number" class="form-control" id="age" name="Age" placeholder="Enter Age (e.g., 30)">
+                            </div>
+                            <div class="form-group">
+                                <label for="balance">Balance:</label>
+                                <input type="number" class="form-control" id="balance" name="Balance" placeholder="Enter Balance (e.g., 1000)">
+                            </div>                                                
+                            <div class="form-group">
+                                <label for="estimated_salary">Estimated Salary:</label>
+                                <input type="number" class="form-control" id="estimated_salary" name="EstimatedSalary" placeholder="Enter Estimated Salary (e.g., 50000)">
+                            </div> 
+                            <div class="form-group">
+                                <label for="tenure">Tenure (years):</label>
+                                <select class="form-control" id="tenure" name="Tenure">
+                                    <option disabled selected>No. of Years user associated since</option>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>                  
+                            <!-- Other input fields for the first row -->
+                        </div>
+                        <div class="col">
+                            
+                            <div class="form-group">
+                                <label for="geography">Geography:</label>
+                                <select class="form-control" id="geography" name="Geography">
+                                    <option disabled selected>User's location/geography</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="Spain">Spain</option>
+                                </select>
+                            </div> 
+                            <div class="form-group">
+                                <label for="has_cr_card">Has Credit Card:</label>
+                                <select class="form-control" id="has_cr_card" name="HasCrCard">
+                                    <option disabled selected>"Yes" if have, "No" otherwise </option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender:</label>
+                                <select class="form-control" id="gender" name="Gender">
+                                    <option disabled selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="num_of_products">Number of Products:</label>
+                                <select class="form-control" id="num_of_products" name="NumOfProducts">
+                                    <option disabled selected>No. of products user own</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="is_active_member">Is Active Member:</label>
+                                <select class="form-control" id="is_active_member" name="IsActiveMember">
+                                    <option disabled selected>Select "Yes" if an active member, and "No" otherwise.</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Other input fields for the second row -->
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Predict</button>
+                </form>
+            </div>
+            <hr class="my-4">
+            <h2>{{ prediction }}</h2>
+        </div>
+    </div>
+</body>
+</html>
